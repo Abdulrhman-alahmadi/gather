@@ -1,0 +1,95 @@
+<% layout('layouts/boilerplate') %>
+
+    <style>
+        label {
+            display: block;
+            font: 1rem 'Fira Sans', sans-serif;
+        }
+
+        input,
+        label {
+            margin: .4rem 0;
+        }
+    </style>
+
+    <body style="background-color: #F1F1F1;">
+        <div class="col d-flex justify-content-center">
+            <div class="card shadow-lg mb-5 bg-white rounded" style="width: 30rem;">
+                <img class="card-img-top"
+                    src="https://res.cloudinary.com/eventboost/image/upload/v1594283388/website/wp/eventboost-facebook-og-home.jpg"
+                    alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Create new event!</h5>
+                    <form action="/home" method="POST" role="form" class="form-horizontal valid" novalidate>
+                        <div class="mb-3">
+                            <label for="eventname" class="form-label">Event name</label>
+                            <input type="text" class="form-control" id="eventname" placeholder="Study togather group"
+                                name="eventname" required>
+
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="eventloc" class="form-label">Event Location</label>
+                            <input type="text" class="form-control" id="eventloc" placeholder="jeddah, saudi arabia"
+                                name="eventloc" required>
+
+                        </div>
+                        <div class="mb-3">
+                            <label for="eventloc" class="form-label">Event Image Url</label>
+                            <input type="text" class="form-control" id="eventloc"
+                                placeholder="https://www.cuopm.com/wp-content/uploads/2021/09/maxresdefault.jpg"
+                                name="eventImage" required>
+                            <div class="invalid-feedback">
+                                Please insert an image for your event!
+                            </div>
+
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="description" class="form-label">Event description</label>
+                            <textarea class="form-control" id="description" rows="3"
+                                placeholder="Want to better prepare for tests, essays, or assignments? Joining a study group can help. please join us using this link"
+                                name="eventdesc" required></textarea>
+                            <div class="invalid-feedback">
+                                Please insert a descprtion for your event!
+                            </div>
+                            <div id="descptionhelp" class="form-text">incase of online event please include the link.
+                            </div>
+
+
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="row">
+                                <div class="col">
+
+                                    <label for="date">Event date
+                                    </label>
+                                </div>
+                                <div class="col">
+                                    <input type="date" id="start" name="date" min=<%=new Date().getFullYear()+'-'+(new
+                                        Date().getMonth()+1)+'-'+new Date().getDate() %>
+                                    max="2025-12-31" required>
+                                    <div class="invalid-feedback">
+                                        Please choose date!
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-center d-flex justify-content-center"> <button type="submit"
+                                class="btn btn-primary col-sm-12">Submit</button></div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+
+    </body>
+
+    <script src="/js/validationform.js">
+
+    </script>

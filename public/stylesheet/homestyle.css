@@ -1,0 +1,49 @@
+body {
+    height: 100vh;
+	width: 100%;
+	background-color: #F1F1F1;
+
+}
+
+.main-cont{
+	margin: auto;
+	padding-top: 10px;
+	width: 40%;
+
+}
+
+
+#banner {
+	padding-top: 5%;
+
+}
+
+.subtitle{
+	font-size: 30px;
+}
+
+.fade-in {
+	opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-out;
+	animation-duration: 1.3s;
+}
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+.footer{
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	text-align: center;
+}
+

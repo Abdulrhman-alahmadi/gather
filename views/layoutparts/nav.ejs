@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+
+        <a class="p-2 navbar-brand" href="/home">
+            Gather
+        </a>
+        <!-- <a class="p-2 navbar-brand" href="/home"> Gather</a> -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link active" aria-current="page" href="/home">Home</a>
+                <a class="nav-link" href="/currentevent">Current Events</a>
+                <a class="nav-link" href="/new">Create New Event!</a>
+            </div>
+
+            <div class="navbar-nav ms-auto">
+                <% if(user) {%>
+                    <a class="nav-link" href="/logout">welcome <%= user.username %> </a>
+                    <a class="nav-link" href="/logout">logout</a>
+                    <% } else{%>
+                        <a class="nav-link" href="/registration">Register</a>
+                        <a class="nav-link" href="/login">Log in</a>
+                        <% }%>
+            </div>
+        </div>
+    </div>
+</nav>

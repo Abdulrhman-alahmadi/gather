@@ -1,0 +1,86 @@
+<% layout('layouts/boilerplate') %>
+
+    <link rel="stylesheet" href="/stylesheet/vieweventstyle.css">
+
+    <body>
+        <div class="col d-flex justify-content-center">
+            <div class="card" style="width: 50rem;">
+                <img class="card-img-top" src="<%= currentEvent.image %> " alt="Card image cap"
+                    onerror="this.src='https://res.cloudinary.com/eventboost/image/upload/v1594283388/website/wp/eventboost-facebook-og-home.jpg'">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <%= currentEvent.name%>
+                    </h5>
+                    <div class="mb-3">
+                        <p>-
+                            <%= currentEvent.description %>
+                        </p>
+                        <p class="card-text" style="white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">
+                            The event will be on:&nbsp;
+                            <%= currentEvent.date.getUTCFullYear() %> -
+                                <%= currentEvent.date.getUTCDate() %> -
+                                    <%= currentEvent.date.getUTCMonth()+1 %>&nbsp;(&nbsp;<%=
+                                            currentEvent.location.trim() %>&nbsp;)
+                        </p>
+                    </div>
+                    <blockquote class="blockquote mb-0">
+                        <footer class="blockquote-footer pt-1">
+                            Posted
+                            <%=String(new Date().getDate() - currentEvent.creationDate.getDate() ) %> <cite
+                                    title="Source Title">days
+                                    ago </cite>
+
+                                <% if(user && currentEvent.owner==user._id) {%>
+                                    <div class="pt-3">
+                                        <div class="row">
+                                            <div class="col-1">
+                                                <form action="/currentevent/<%= currentEvent._id%>/delete"
+                                                    method="POST">
+                                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                                </form>
+                                            </div>
+                                            <div class="col-1 mx-3">
+                                                <a href="/currentevent/<%= currentEvent._id%>/edit"><button
+                                                        type="button" class="btn btn-info">Edit</button></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <% } %>
+                                        <% if(user && currentEvent.owner !=user._id ){ %>
+
+                                            <% if (!isRolled) {%>
+                                                <form action="/currentevent/<%=currentEvent._id%>/enroll" ,
+                                                    method="POST" class="pt-3">
+                                                    <button type="submit" class="btn btn-info">Enroll</button>
+                                                </form>
+                                                <% } %>
+
+                                                    <% } %>
+
+                                                        <div class="row pt-3">
+
+                                                            <% if(currentEvent.members) {%>
+
+                                                                <% for(let i=0 ; i< members.length; i++) {%>
+                                                                    <div class="col-1">
+                                                                        <p
+                                                                            data-letters="<%= members[i].username.charAt(0).toUpperCase()+members[i].username.charAt(1).toUpperCase() %> ">
+                                                                        </p>
+                                                                    </div>
+
+                                                                    <% } %>
+
+                                                                        <% } %>
+                                                        </div>
+
+
+                        </footer>
+
+                    </blockquote>
+
+                </div>
+
+            </div>
+
+
+    </body>

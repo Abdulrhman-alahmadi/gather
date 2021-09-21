@@ -1,0 +1,53 @@
+<% layout('layouts/boilerplate') %>
+
+    <body>
+
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+
+                    <div class="card border-0 shadow rounded-3 my-5">
+
+                        <div class="card-body p-4 p-sm-5">
+                            <h5 class="card-title text-center mb-5 fw-light fs-5">Registertion</h5>
+                            <form action="/register" method="POST" class="valid" novalidate>
+                                <div class="form-floating mb-3">
+                                    <input type="email" class="form-control" id="email" placeholder="name@example.com"
+                                        name="email" required>
+                                    <label for="floatingInput">Email address</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="username" placeholder="Ahmad"
+                                        name="username" required>
+                                    <label for="floatingInput">Username</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="password" class="form-control" id="password" placeholder="Password"
+                                        name="password" required>
+                                    <label for="floatingPassword">Password</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="password" class="form-control" id="confirmpassword"
+                                        placeholder="Password" name="confirmpassword" required>
+                                    <label for="floatingPassword">Confirm Password</label>
+                                </div>
+
+                                <div class="d-grid">
+                                    <button class="btn btn-primary btn-login text-uppercase fw-bold" type="submit">Sign
+                                        up</button>
+                                </div>
+                                <p class="d-flex flex-row justify-content-center pt-3 ">already a member? <span><a
+                                            class="text-secondary" href="/login">&nbsp;Sign in now!</a></span>
+                                </p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+
+    <script src="/js/validationform.js">

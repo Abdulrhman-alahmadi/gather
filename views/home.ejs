@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gather!</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+        integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+    <link rel="stylesheet" href="stylesheet/homestyle.css">
+</head>
+
+<body>
+    <header class="p-3">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="#">Gather</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/currentevent">Current Events</a>
+                    </li>
+                </ul>
+                <div class="form-inline">
+                    <ul class="navbar-nav mr-auto">
+
+                        <% if(user) {%>
+                            <a class="nav-link" href="/currentevent">Welcome <%= user.username %> </a>
+                            <a class="nav-link" href="/logout">Logout</a>
+                            <% } else{%>
+                                <a class="nav-link" href="/login">Log in</a>
+                                <a class="nav-link" href="/registration">Register</a>
+
+                                <% }%>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+    <section id="banner" class="fade-in">
+        <div class="container pt-5">
+            <div class="row p-5">
+                <div class="col-md-6 pt-5">
+                    <h1 class="display-1">Gather</h1>
+                    <p class="subtitle">One place to share events, <br>Watch party, study group and
+                        more! </p>
+                    <a href="/currentevent"><button type="button" class="btn btn-outline-secondary .btn-lg">View Current
+                            events</button></a>
+                </div>
+                <div class="col-md-6 text-center">
+                    <img src="https://outsnapped.com/wp-content/uploads/2020/07/eventmobi__illustration-onsite-virtual-hybrid-e1584307881738.png"
+                        alt="" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class=" text-center footer">&copy; 2021
+
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+        integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+        crossorigin="anonymous"></script>
+</body>
+
+
+</html>

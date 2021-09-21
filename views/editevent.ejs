@@ -1,0 +1,98 @@
+<% layout('layouts/boilerplate') %>
+
+    <div>
+        <ol>
+            <% var setVar=0; var rowNo=0; %>
+                <% function changeUrl() { %>
+                    let imgInput = document.querySelector('.imgUrl');
+                    imgInput.innerHtml="hello wrold";
+                    <% } %>
+        </ol>
+    </div>
+
+    <body style="background-color: #F1F1F1;">
+        <div class="col d-flex justify-content-center">
+            <div class="card shadow-lg mb-5 bg-white rounded" style="width: 30rem;">
+                <img class="card-img-top" src=<%- currentEvent.image %>
+                alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Create new event!</h5>
+                    <form action="/currentevent/<%- currentEvent._id %>/edit" method="POST" role="form"
+                        class="form-horizontal valid" novalidate>
+                        <div class="mb-3">
+                            <label for="eventname" class="form-label">Event name</label>
+                            <input type="text" class="form-control" id="eventname" placeholder="<%=currentEvent.name%>"
+                                name="eventname" required>
+
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="eventloc" class="form-label">Event Location</label>
+                            <input type="text" class="form-control" id="eventloc" placeholder="<%=currentEvent.location
+                                %>" name="eventloc" required>
+
+                        </div>
+                        <div class="mb-3">
+                            <label for="eventloc" class="form-label">Event Image Url</label>
+                            <input type="text" class="form-control imgUrl" id="eventloc" placeholder="<%=currentEvent.image
+                                %>" name="eventImage" required>
+                            <div class="invalid-feedback">
+                                Please insert an image for your event!
+                            </div>
+                            <div class="form-check pt-2">
+                                <input class="form-check-input" type="checkbox" value="" id="insertCurrentUrl">
+                                <label class="form-check-label" for="rememberPasswordCheck">
+                                    use the current image?
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="description" class="form-label">Event description</label>
+                            <textarea class="form-control" id="description" rows="3"
+                                placeholder="<%=currentEvent.description %>" name="eventdesc" required></textarea>
+                            <div class="invalid-feedback">
+                                Please insert a descprtion for your event!
+                            </div>
+                            <div id="descptionhelp" class="form-text">incase of online event please include the link.
+                            </div>
+
+
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="row">
+                                <div class="col">
+                                    <label for="date">Event date
+                                    </label>
+                                </div>
+                                <div class="col">
+                                    <input type="date" id="start" name="date" min=<%=new Date().getFullYear()+'-'+(new
+                                        Date().getMonth()+1)+'-'+new Date().getDate() %>
+                                    max="2025-12-31" required>
+                                    <div class="invalid-feedback">
+                                        Please choose date!
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-center d-flex justify-content-center"> <button type="submit"
+                                class="btn btn-primary col-sm-12">Submit Edit</button></div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+
+    </body>
+
+    <script src="/js/editeventform.js">
+
+    </script>
+    <script src="/js/validationform.js">
+
+    </script>
